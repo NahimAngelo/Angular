@@ -1,0 +1,29 @@
+<app-nav></app-nav>
+<div class="container">
+    <h1 class="text-center py-5">Add User</h1>
+    <form [formGroup]="addUserForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label>Name</label>
+        <input type="text" formControlName="name" class="form-control" placeholder="Name">
+      </div>
+      <div class="form-group">
+        <label>Job</label>
+        <input type="text" formControlName="job" class="form-control" placeholder="Job">
+      </div>
+      <button type="submit" class="btn btn-primary">Login</button>
+    </form>
+    <ngb-toast class="center" *ngIf="visible" header="Error" [autohide]="false" (shown)="onShown()">
+        Name and Job are required
+    </ngb-toast>
+    <div *ngIf="user.name !== ''">
+        <h1 class="text-center py-5">Response</h1>
+        <div class="card center" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title text-center">ID: {{user.id}}</h5>
+              <p class="card-text">Name: {{user.name}}</p>
+              <p class="card-text">Job: {{user.job}}</p>
+              <p class="card-text">Created At: {{user.createdAt}}</p>
+            </div>
+          </div>
+    </div>
+</div>

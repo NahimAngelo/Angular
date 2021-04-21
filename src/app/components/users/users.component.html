@@ -1,0 +1,13 @@
+<app-nav></app-nav>
+<div class="container">
+    <div class="row pt-5">
+        <div class="col-sm-4 py-4 cardPointer" *ngFor="let user of users">
+            <div class="card" style="width: 18rem;" (click)="goToDetails(user.id)">
+                <img class="card-img-top" src={{user.avatar}} alt="Card image cap">
+                <div class="card-body">
+                  <p class="card-text text-center">{{user.first_name}}</p>
+                </div>
+              </div>
+        </div>
+    </div>
+</div>
